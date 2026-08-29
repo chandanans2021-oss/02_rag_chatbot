@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><title>RAG Chatbot</title></head>
+<body>
+<h1>PDF RAG Chatbot</h1>
+
+<form method="post" enctype="multipart/form-data">
+<input type="hidden" name="action" value="upload">
+<input type="file" name="file" accept=".pdf" required>
+<button>Upload and Index</button>
+</form>
+
+<hr>
+<form method="post">
+<input type="hidden" name="action" value="ask">
+<input name="question" placeholder="Ask a question..." size="60" required>
+<button>Ask</button>
+</form>
+
+{% if question %}<h3>Question: {{ question }}</h3>{% endif %}
+{% if answer %}<p><b>Answer:</b> {{ answer }}</p>{% endif %}
+</body></html>
